@@ -31,6 +31,7 @@ program
     "-c, --commit <sha>",
     "Commit SHA (auto-detected from GITHUB_SHA, CI_COMMIT_SHA, BITBUCKET_COMMIT, or PENSAR_COMMIT_SHA)"
   )
+  .option("--base <sha>", "Previous deployment commit SHA (or set PENSAR_BASE_SHA)")
   .option(
     "-s, --severity <severity>",
     "Minimum severity threshold to trigger error (critical, high, medium, low, info). Or set PENSAR_ERROR_SEVERITY_THRESHOLD env var.",
@@ -84,6 +85,7 @@ program
         environment: options.environment as Environment | undefined,
         errorSeverityThreshold: severityThreshold,
         commitSha: options.commit,
+        baseSha: options.base,
         targetUrl: options.url,
         testType,
       });

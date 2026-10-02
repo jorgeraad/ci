@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "check": "node dist/test/baseSha.js",
     "start": "ts-node src/bin/index.ts"
   },
   "keywords": [
